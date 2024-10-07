@@ -14,7 +14,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+  } from "@/components/ui/card";
+  
 
 
 
@@ -29,49 +36,53 @@ const Login = () => {
       })
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
         console.log(values)
       }
 
   return (
-    <div className="bg-white">
-        <h2>Login Form </h2>
-    
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                        <Input placeholder="user@domain.com" {...field} />
-                    </FormControl>
-                    
-                    <FormMessage />
-                </FormItem>
-                )}
-            />
-
-            <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                <FormItem>
-                    <FormLabel>Password</FormLabel>
+    <div className="p-5">
+        <Card className="bg-white">
+             <CardHeader>
+                <CardTitle>Login</CardTitle>
+                <CardDescription>Welcome back! Please login to your account</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Email</FormLabel>
                         <FormControl>
-                            <Input placeholder="*******" {...field} />
+                            <Input placeholder="user@domain.com" {...field} />
                         </FormControl>
-                    
-                    <FormMessage />
-                </FormItem>
-                )}
-            />
-            <Button type="submit">Login</Button>
-            </form>
-        </Form>
+                        
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Password</FormLabel>
+                            <FormControl>
+                                <Input placeholder="******" {...field} />
+                            </FormControl>
+                        
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
+                <Button type="submit">Login</Button>
+                </form>
+                </Form>
+            </CardContent>
+        </Card>
     
     </div>
   )
