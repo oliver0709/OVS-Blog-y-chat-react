@@ -218,7 +218,7 @@ button:focus-visible {
   scrollbar-width: thin;
   scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
 }
-
+/*
 .custom-scrollbar::-webkit-scrollbar {
   width: 0;
   background: transparent;
@@ -242,12 +242,13 @@ button:focus-visible {
   border-radius: 10px;
 } 
 
-/* For Firefox */
+ For Firefox 
 .custom-scrollbar {
-  scrollbar-width: none; /* Hide scrollbar by default */
+  scrollbar-width: none; 
 }
 
 .custom-scrollbar:hover {
-  scrollbar-width: thin; /* Show thin scrollbar on hover */
+  scrollbar-width: thin; 
   scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
 }
+*/
