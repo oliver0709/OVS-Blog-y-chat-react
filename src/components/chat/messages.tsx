@@ -11,4 +11,5 @@ const Messages = () => {
     </article>
     );
   };
-  export default Messages;
+
+export default Messages;
