@@ -1,3 +1,4 @@
+import { useChatStore } from "@/store/chat-store";
 import { Button } from "@/components/ui/button";
 import { useAuth, useUser } from "reactfire";
 
@@ -5,8 +6,10 @@ import { useAuth, useUser } from "reactfire";
 const Profile = () => {
   const auth = useAuth();
   const { data: user } = useUser();
+  const { resetFriend } = useChatStore();
 
   const handleClickLogout = async () => {
+    resetFriend();
     await auth.signOut();
   };
 
