@@ -66,18 +66,34 @@ const Friends = () => {
   }, []);
 
   return (
-    <div className="grid grid-rows-[auto_1fr] h-screen border-r">
+    // <div className="grid grid-rows-[auto_1fr] h-screen border-r">
+    //   <section className="border-b p-4">
+    //     <h2 className="text-xl font-bold text-gray-700 mb-4">Chats</h2>
+    //     <FriendSearch />
+    //   </section>
+    //   <section className="custom-scrollbar">
+    //   {friends.map((friend) => (
+    //       <FriendItem
+    //         key={friend.uid}
+          
+    //         {...friend}
+    //       />
+    //     ))}
+    //   </section>
+    // </div>
+
+
+
+
+
+    <div className="grid grid-rows-[auto_1fr] h-screen border-r md:w-60">
       <section className="border-b p-4">
         <h2 className="text-xl font-bold text-gray-700 mb-4">Chats</h2>
         <FriendSearch />
       </section>
-      <section className="custom-scrollbar">
-      {friends.map((friend) => (
-          <FriendItem
-            key={friend.uid}
-          
-            {...friend}
-          />
+      <section className="custom-scrollbar overflow-y-auto">
+        {friends.map((friend) => (
+          <FriendItem key={friend.uid} {...friend} />
         ))}
       </section>
     </div>

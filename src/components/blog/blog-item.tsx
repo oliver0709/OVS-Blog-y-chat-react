@@ -1,7 +1,49 @@
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import striptags from "striptags";
+// import TruncateMarkup from "react-truncate-markup";
+
+// interface BlogItemProps {
+//   blogItem: {
+//     id: number;
+//     blog_status: string;
+//     content: string;
+//     title: string;
+//     featured_image_url?: string;
+//   };
+// }
+
+// const BlogItem: React.FC<BlogItemProps> = ({ blogItem }) => {
+//   const { id, title, content } = blogItem;
+
+//   return (
+//     <div className="mb-6 p-4 border-b border-gray-200">
+//       <Link to={`/b/${id}`} className="text-xl font-semibold text-blue-500 hover:underline">
+//         <h1>{title}</h1>
+//       </Link>
+//       <div className="text-gray-600">
+//         <TruncateMarkup lines={5}>
+//           <div>
+//             {striptags(content)}
+//             <span className="text-blue-400">
+//               ...<Link to={`/b/${id}`} className="hover:underline">Read more</Link>
+//             </span>
+//           </div>
+//         </TruncateMarkup>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default BlogItem;
+
+
+
+
+
 import React from "react";
 import { Link } from "react-router-dom";
 import striptags from "striptags";
-import TruncateMarkup from "react-truncate-markup";
 
 interface BlogItemProps {
   blogItem: {
@@ -14,25 +56,40 @@ interface BlogItemProps {
 }
 
 const BlogItem: React.FC<BlogItemProps> = ({ blogItem }) => {
-  const { id, title, content } = blogItem;
+  const { id, title, content, featured_image_url } = blogItem;
+
+  // Limitar el contenido a 200 caracteres y eliminar etiquetas HTML
+  const truncatedContent = striptags(content).substring(0, 200);
 
   return (
     <div className="mb-6 p-4 border-b border-gray-200">
-      <Link to={`/b/${id}`} className="text-xl font-semibold text-blue-500 hover:underline">
+      {featured_image_url && (
+        <img
+          src={featured_image_url}
+          alt={title}
+          className="w-full h-48 object-cover mb-4"
+        />
+      )}
+      <Link to={`/b/${id}`} className="text-xl font-semibold text-blue-500 hover:text-blue-700 no-underline">
         <h1>{title}</h1>
       </Link>
       <div className="text-gray-600">
-        <TruncateMarkup lines={5}>
-          <div>
-            {striptags(content)}
-            <span className="text-blue-400">
-              ...<Link to={`/b/${id}`} className="hover:underline">Read more</Link>
+        <p>
+          {truncatedContent}
+          {content.length > 200 && (
+            <span>
+             
+              ...{" "}
+              <Link to={`/b/${id}`} className="text-blue-500 hover:text-blue-700 no-underline">
+                Read more
+              </Link>
             </span>
-          </div>
-        </TruncateMarkup>
+          )}
+        </p>
       </div>
     </div>
   );
 };
 
 export default BlogItem;
+

@@ -11,12 +11,7 @@ const AuthLayout = () => {
         <Register />
       </div>
 
-      {/* Link al blog sin necesidad de autenticarse */}
-      <div className="text-center mt-4">
-        <Link to="/blog" className="text-blue-500 underline">
-          Visit the Blog
-        </Link>
-      </div>
+      
     </main>
   );
 };
