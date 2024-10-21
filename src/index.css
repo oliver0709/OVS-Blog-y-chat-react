@@ -218,6 +218,56 @@ button:focus-visible {
   scrollbar-width: thin;
   scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
 }
+
+
+
+
+
+/* Ajustes generales para el editor y formulario */
+/* 
+.rdw-editor-toolbar {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 6px 5px;
+}
+
+.demo-editor {
+  min-height: 150px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.demo-wrapper {
+  width: 100%;
+}
+
+.blog-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+input.input-class {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.image-uploaders {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+} */
+/* 
+.ReactModal__Content,
+.ReactModal__Content--after-open {
+  height: 90%;
+} */
+
+
+
 /*
 .custom-scrollbar::-webkit-scrollbar {
   width: 0;
