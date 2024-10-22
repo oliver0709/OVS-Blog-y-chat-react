@@ -1,6 +1,6 @@
 import Login from "@/components/authentication/login";
 import Register from "@/components/authentication/register";
-import { Link } from "react-router-dom"; // Importar el Link para navegación
+import { Link } from "react-router-dom";
 
 const AuthLayout = () => {
   return (

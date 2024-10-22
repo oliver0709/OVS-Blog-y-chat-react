@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RootLayout from './layouts-y-pages/root-layout'; // Contiene login/register del chat
 import Blog from './layouts-y-pages/blog-layout';
 import BlogDetail from './layouts-y-pages/blog-detail';
-import BlogLogin from './components/blog/blog-login'; // Asegúrate de importar el blog-login
+import BlogLogin from './components/blog/blog-login'; 
 import AboutPage from './layouts-y-pages/about-page';
 import NavigationContainer from './components/navigation/navigation-container'; // Barra de navegación
 
@@ -51,7 +51,7 @@ const App = () => {
 
             {/* Rutas */}
             <Routes>
-              {/* Hacer de /blog la página principal */}
+              {/* blog es la página principal */}
               <Route
                 path="/"
                  element={<Blog loggedInStatus={loggedInStatus} />}
@@ -66,7 +66,7 @@ const App = () => {
               <Route path="/auth"
                element={
                 <BlogLoginWithNavigation handleSuccessfulLogin={handleSuccessfulLogin} />
-  } /> {/* Página protegida del admin */}
+               } /> {/* Página protegida del admin */}
               
               {/* Página para el chat (login/register) */}
               <Route path="/chat" element={<RootLayout />} />

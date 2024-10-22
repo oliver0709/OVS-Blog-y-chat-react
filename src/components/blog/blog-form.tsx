@@ -19,7 +19,7 @@ interface BlogFormState {
   blog_status: string;
   content: string;
   featured_image: any;
-  featured_image_url: string | null; // Nueva propiedad para manejar el estado de la imagen
+  featured_image_url: string | null;
   apiUrl: string;
   apiAction: string;
 }
@@ -36,7 +36,7 @@ export class BlogForm extends Component<BlogFormProps, BlogFormState> {
       blog_status: "",
       content: "",
       featured_image: null,
-      featured_image_url: null, // Inicializamos la propiedad como null
+      featured_image_url: null,
       apiUrl: "https://ovs-api-blogbackend.onrender.com/portfolio/portfolio_blogs",
       apiAction: "post",
     };
@@ -56,7 +56,7 @@ export class BlogForm extends Component<BlogFormProps, BlogFormState> {
         title: nextProps.blog.title,
         blog_status: nextProps.blog.blog_status,
         content: nextProps.blog.content,
-        featured_image_url: nextProps.blog.featured_image_url, // Cargamos la URL de la imagen en el estado
+        featured_image_url: nextProps.blog.featured_image_url,
         apiUrl: `https://ovs-api-blogbackend.onrender.com/portfolio/portfolio_blogs/${nextProps.blog.id}`,
         apiAction: "patch",
       };
@@ -98,7 +98,8 @@ export class BlogForm extends Component<BlogFormProps, BlogFormState> {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      console.error("No token found, please login first.");
+      alert("Session expired, please log in again.");
+      window.location.href = "/auth";
       return;
     }
 
@@ -140,7 +141,8 @@ export class BlogForm extends Component<BlogFormProps, BlogFormState> {
       .catch((error) => {
         console.log("handleSubmit for blog error", error);
         if (error.response && error.response.status === 401) {
-          console.error("Unauthorized: Please check if the token is valid.");
+          alert("Session expired, please log in again.");
+          window.location.href = "/auth";
         }
       });
   }
@@ -148,7 +150,8 @@ export class BlogForm extends Component<BlogFormProps, BlogFormState> {
   deleteImage(imageType: string) {
     const token = localStorage.getItem("token");
     if (!token) {
-      console.error("No token found, please login first.");
+      alert("Session expired, please log in again.");
+      window.location.href = "/auth";
       return;
     }
 
@@ -160,7 +163,7 @@ export class BlogForm extends Component<BlogFormProps, BlogFormState> {
         withCredentials: true,
       })
       .then(() => {
-        this.setState({ featured_image_url: null }); // Actualizamos el estado para reflejar la eliminación
+        this.setState({ featured_image_url: null });
         this.props.handleFeaturedImageDelete?.();
       })
       .catch((error) => {

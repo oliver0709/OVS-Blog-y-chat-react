@@ -22,7 +22,7 @@ const Friends = () => {
   useEffect(() => {
     const userRef = doc(db, "users", auth.currentUser!.uid);
     const unsubcribe = onSnapshot(userRef, (document) => {
-       // console.log("Current data: ", document.data()?.rooms);
+       
 
       const friendPromises = document.data()?.rooms.map((room: UserRoom) => {
         const friendRef = doc(db, "users", room.friendId);
@@ -35,7 +35,7 @@ const Friends = () => {
             .data()
             ?.rooms.find((room: UserRoom) => room.friendId === friend.id);
 
-          // console.log({ room });
+         
 
           const data = friend.data();
 
@@ -66,26 +66,7 @@ const Friends = () => {
   }, []);
 
   return (
-    // <div className="grid grid-rows-[auto_1fr] h-screen border-r">
-    //   <section className="border-b p-4">
-    //     <h2 className="text-xl font-bold text-gray-700 mb-4">Chats</h2>
-    //     <FriendSearch />
-    //   </section>
-    //   <section className="custom-scrollbar">
-    //   {friends.map((friend) => (
-    //       <FriendItem
-    //         key={friend.uid}
-          
-    //         {...friend}
-    //       />
-    //     ))}
-    //   </section>
-    // </div>
-
-
-
-
-
+  
     <div className="grid grid-rows-[auto_1fr] h-screen border-r md:w-60">
       <section className="border-b p-4">
         <h2 className="text-xl font-bold text-gray-700 mb-4">Chats</h2>

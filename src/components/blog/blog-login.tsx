@@ -10,7 +10,7 @@ interface LoginState {
 
 interface BlogLoginProps {
   navigate: NavigateFunction;
-  handleSuccessfulLogin: () => void; // Aceptamos esta prop aquí
+  handleSuccessfulLogin: () => void; 
 }
 
 class BlogLogin extends Component<BlogLoginProps, LoginState> {

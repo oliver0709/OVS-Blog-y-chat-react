@@ -41,7 +41,7 @@ const FriendSearch = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      // En TypeScript, el operador ! se llama "non-null assertion operator". Se utiliza para indicar al compilador que una expresión no es null ni undefined, incluso si el tipo de la expresión podría serlo. Esto es útil cuando el programador está seguro de que el valor no será null o undefined en tiempo de ejecución, pero el compilador no puede inferirlo.
+      
       if (auth.currentUser!.email === values.email) {
         form.setError("email", {
           type: "manual",
@@ -65,17 +65,11 @@ const FriendSearch = () => {
         return;
       }
 
-      // if (!querySnapshot.docs[0]) {
-      //   form.setError("email", {
-      //     type: "manual",
-      //     message: "User not found",
-      //   });
-      //   return;
-      // }
+      
 
       const friendDB = querySnapshot.docs[0].data();
 
-      // verificar si ya son amigos
+      // verifica si ya son amigos
       const q2 = query(
         collection(db, "users"),
         where("uid", "==", auth.currentUser!.uid),
@@ -92,7 +86,7 @@ const FriendSearch = () => {
         return;
       }
 
-      // crear la room
+      // crea la room
       const newRoomDB: RoomDB = {
         messages: [],
         users: [auth.currentUser?.uid, friendDB.uid],
@@ -101,7 +95,7 @@ const FriendSearch = () => {
 
       console.log("1. Room created");
 
-      // agregar la room a ambos usuarios
+      // agrega la room a ambos usuarios
       const currentUserRoom: UserRoom = {
         roomid: roomRef.id,
         lastMessage: "",

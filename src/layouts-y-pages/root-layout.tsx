@@ -24,7 +24,7 @@ const RootLayout = () => {
 
   return (
     <Routes>
-      {/* Si está autenticado, va al chat, si no, al login/register */}
+      {/* Si está autenticado, va al chat, caso contrario al login/register */}
       {signInCheckResult.signedIn && !loading ? (
         <Route path="*" element={<ChatLayout />} />
       ) : (

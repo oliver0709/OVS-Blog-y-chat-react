@@ -5,7 +5,6 @@ import BlogModal from "@/components/blog/blog-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPlusCircle, faSpinner, faEdit } from "@fortawesome/free-solid-svg-icons";
 
-// Tipos para las props y el estado
 interface BlogProps {
   loggedInStatus: string;
 }
@@ -69,16 +68,6 @@ class Blog extends Component<BlogProps, BlogState> {
     });
   }
 
-  // handleSuccessfulNewBlogSubmission(blog: any) {
-  //   console.log("New blog data:", blog);
-  //   this.setState((prevState) => ({
-  //     blogModalIsOpen: false,
-  //     blogItems: [blog, ...prevState.blogItems],
-  //     blogToEdit: null,
-  //   }));
-  //   this.getBlogItems(); // Actualizamos la lista de blogs
-  // }
-
   handleSuccessfulNewBlogSubmission(blog: any) {
     if (!blog) {
       console.error("Error: Blog data is undefined after submission.");
@@ -91,31 +80,6 @@ class Blog extends Component<BlogProps, BlogState> {
       blogToEdit: null,
     }));
   }
-
-  
-
-
-
-
-
-
-  // handleUpdateFormSubmission(blog: any) {
-  //   console.log("Updated blog data:", blog);
-  //   if (!blog || !blog.id) {
-  //     console.error("Error: Blog update failed.");
-  //     return;
-  //   }
-
-  //   this.setState((prevState) => ({
-  //     blogModalIsOpen: false,
-  //     blogItems: prevState.blogItems.map((item) =>
-  //       item.id === blog.id ? blog : item
-  //     ),
-  //     blogToEdit: null,
-  //   }));
-  //   this.getBlogItems(); // Actualizamos la lista de blogs
-  // }
-
 
   handleUpdateFormSubmission(blog: any) {
     if (!blog || !blog.id) {
@@ -131,8 +95,6 @@ class Blog extends Component<BlogProps, BlogState> {
       blogToEdit: null,
     }));
   }
-
-  
 
   handleModalClose() {
     this.setState({
@@ -251,5 +213,3 @@ class Blog extends Component<BlogProps, BlogState> {
 }
 
 export default Blog;
-
-
