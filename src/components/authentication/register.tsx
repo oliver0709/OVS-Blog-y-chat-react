@@ -177,7 +177,7 @@ const Register = () => {
               <FormField
                 control={form.control}
                 name="photoURL"
-                render={({ field: { onChange, ...fieldProps } }) => (
+                render={({ field: { onChange } }) => (
                   <FormItem>
                     <FormLabel>Profile Picture</FormLabel>
                     <FormControl>

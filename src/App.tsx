@@ -6,9 +6,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RootLayout from './layouts-y-pages/root-layout'; // Contiene login/register del chat
 import Blog from './layouts-y-pages/blog-layout';
 import BlogDetail from './layouts-y-pages/blog-detail';
-import BlogLogin from './components/blog/blog-login'; 
+ 
 import AboutPage from './layouts-y-pages/about-page';
-import NavigationContainer from './components/navigation/navigation-container'; // Barra de navegación
+
 
 import Icons from '@/helpers/icons'; 
 import NavigationComponent from './components/navigation/navigation-container';

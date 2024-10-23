@@ -66,7 +66,13 @@ class BlogDetail extends Component<BlogDetailProps, BlogDetailState> {
 }
 
 const BlogDetailWithParams = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id?: string }>();
+
+  // Verificar si `id` está definido antes de renderizar el componente
+  if (!id) {
+    return <div>Blog ID not found.</div>;
+  }
+
   return <BlogDetail id={id} />;
 };
 

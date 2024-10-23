@@ -1,9 +1,14 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
 
-const NavigationComponent = ({ loggedInStatus, handleSuccessfulLogout }) => {
+// Definir los tipos explícitos para las props
+interface NavigationComponentProps {
+  loggedInStatus: string;
+  handleSuccessfulLogout: () => void;
+}
+
+const NavigationComponent: React.FC<NavigationComponentProps> = ({ loggedInStatus, handleSuccessfulLogout }) => {
   const navigate = useNavigate();
 
   const handleSignOut = () => {
@@ -24,22 +29,19 @@ const NavigationComponent = ({ loggedInStatus, handleSuccessfulLogout }) => {
         <div className="flex space-x-6">
           <NavLink
             to="/blog"
-            className="hover:text-indigo-300 transition duration-300"
-            activeclassname="underline"
+            className={({ isActive }) => isActive ? "underline hover:text-indigo-300 transition duration-300" : "hover:text-indigo-300 transition duration-300"}
           >
             Blog
           </NavLink>
           <NavLink
             to="/chat"
-            className="hover:text-indigo-300 transition duration-300"
-            activeclassname="underline"
+            className={({ isActive }) => isActive ? "underline hover:text-indigo-300 transition duration-300" : "hover:text-indigo-300 transition duration-300"}
           >
             Chat
           </NavLink>
           <NavLink
             to="/about-me"
-            className="hover:text-indigo-300 transition duration-300"
-            activeclassname="underline"
+            className={({ isActive }) => isActive ? "underline hover:text-indigo-300 transition duration-300" : "hover:text-indigo-300 transition duration-300"}
           >
             About
           </NavLink>
